@@ -11,7 +11,13 @@ import AudioToolbox
 import PhotosUI
 
 /*
- -
+TODO:
+ - Lock the screen in orientation mode
+ - Countdown in game
+ - countdown before starting game
+ - Winning screen, and go back to main screen
+- Then fix the issue where some elements are shown twice in the same game. If the deck is finished then show the winning screen
+ - deck selection screen
  */
 
 @MainActor
@@ -56,6 +62,7 @@ struct ContentView: View {
     @State var showCountdown = false
     @State var chosenDeck: String = "" //the name of the deck in the decks.txt file
     @State var words: [String] = []
+    @State var showWaitingMessage = false
     
     //values that the user sees
     @State var currentWord: String = "" //current displayed word
@@ -93,8 +100,16 @@ struct ContentView: View {
                             startingGame = true
                         } completion: { //start the game when the button leaves the screen
                             changeOrientation(to: .landscapeLeft)
+                            
+                            //display the game screen after a second
                             gameMode = true
-                            startingGame = false
+                            showWaitingMessage = true
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                                showWaitingMessage = false
+                                startingGame = false
+                            }
+                            
                         } //end of withAnimation completion
                     } //end of button action
                 }, label: {
@@ -118,9 +133,9 @@ struct ContentView: View {
                     Text(errorMessage)
                 }
                 .fullScreenCover(isPresented: $gameMode, content: {
-                    GameScreen(showWordFeedback: $showWordFeedback, lastWordWasCorrect: $lastWordWasCorrect, currentWord: $currentWord, wins: $wins, skipped: $skipped)
+                    GameScreen(showWordFeedback: $showWordFeedback, lastWordWasCorrect: $lastWordWasCorrect, currentWord: $currentWord, wins: $wins, skipped: $skipped, showWaitingMessage: $showWaitingMessage)
                 })
-                    
+                
                 HStack {
                     PhotosPicker(selection: $viewModel.imageSelection, matching: .images) {
                         Image(systemName: "photo.on.rectangle.angled")
@@ -243,6 +258,7 @@ struct GameScreen: View {
     @Binding var currentWord: String
     @Binding var wins: Int
     @Binding var skipped: Int
+    @Binding var showWaitingMessage: Bool
     
     var body: some View {
         ZStack {
@@ -257,11 +273,18 @@ struct GameScreen: View {
                         .bold()
                         .opacity(showWordFeedback ? 1.0 : 0)
                 } else { //Display Current Word
-                    Text(currentWord)
-                        .font(.system(size: 70))
-                        .foregroundStyle(.white)
-                        .bold()
-                        .shadow(color: .white, radius: 6, x: 5, y: 5)
+                    if (showWaitingMessage) {
+                        Text("Place on forehead.")
+                            .font(.system(size: 70))
+                            .foregroundStyle(.white)
+                            .bold()
+                    } else {
+                        Text(currentWord)
+                            .font(.system(size: 70))
+                            .foregroundStyle(.white)
+                            .bold()
+                            .shadow(color: .white, radius: 6, x: 5, y: 5)
+                    }
                 }
                 Spacer() //Display wins
                 Text("Correct: \(wins)   Skipped: \(skipped)")
