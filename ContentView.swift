@@ -68,7 +68,7 @@ struct ContentView: View {
     @State var errorTitle: String = ""
     
     //constants
-    let deckFile = "decks.txt"
+    let deckFileName = "decks" //do NOT include .txt extension
     
     var body: some View {
         ZStack {
@@ -87,14 +87,16 @@ struct ContentView: View {
                 Spacer()
                  //what is only displayed on the home screen
                 Button(action: {
-                    //animate the start button to go down
-                    withAnimation (.easeIn(duration: 0.5)) {
-                        startingGame = true
-                    } completion: { //start the game when the button leaves the screen
-                        changeOrientation(to: .landscapeLeft)
-                        gameMode = true
-                        startingGame = false
-                    }
+                    if words.count > 0 {
+                        //animate the start button to go down
+                        withAnimation (.easeIn(duration: 0.5)) {
+                            startingGame = true
+                        } completion: { //start the game when the button leaves the screen
+                            changeOrientation(to: .landscapeLeft)
+                            gameMode = true
+                            startingGame = false
+                        } //end of withAnimation completion
+                    } //end of button action
                 }, label: {
                     VStack {
                         Spacer()
@@ -111,7 +113,7 @@ struct ContentView: View {
                     
                 }) //end of button
                 .alert(errorTitle, isPresented: $showUserAlert) {
-                    Button("OK", role: .destructive) {}
+                    Button("OK", role: .cancel) {}
                 } message: {
                     Text(errorMessage)
                 }
@@ -134,8 +136,9 @@ struct ContentView: View {
         .onAppear {
             changeOrientation(to: .portrait) //make sure phone is in portrait mode in the beginning
             
-            chosenDeck = "People"
-            guard readDeckFromFile(deckFile: deckFile, deckName: chosenDeck) else {return} //make sure the program can actually fetch the deck from the local file storage, or the game can't function at all!
+            chosenDeck = "People" //chose default temporary deck
+            
+            guard readDeckFromFile(deckFile: deckFileName, deckName: chosenDeck) else {return} //make sure the program can actually fetch the deck from the local file storage, or the game can't function at all!
             
             currentWord = chooseRandomWord() //set first word
             
@@ -180,16 +183,22 @@ struct ContentView: View {
     } //end of var body: some View
      
     func readDeckFromFile(deckFile: String, deckName: String) -> Bool { //scans the given deck with the file name and deck name, returns success?
-        let path = Bundle.main.path(forResource: deckFile, ofType: ".txt") //find the file given the file path
-        
+        let path = Bundle.main.path(forResource: deckFile, ofType: "txt") //find the file given the file path
+
         if (path != nil) {
             do {
                 let fileContents: String = try String(contentsOfFile: path!, encoding: .utf8)
                 if let i = fileContents.range(of: chosenDeck+":") {
-                    let nextDeckIndex = fileContents.prefix(upTo: i.upperBound).firstIndex(of: ":") ?? fileContents.endIndex //the end of this deck
+                    
+                    let nextDeckIndex = fileContents[i.upperBound...].firstIndex(of: ":") ?? fileContents.endIndex //the end of this deck
                     let deckStringContents = fileContents[i.upperBound...nextDeckIndex]
-                    words = deckStringContents.split(separator: "\n").map{cardSubstring in return String(cardSubstring)}
-                    print(words)
+                                        
+                    for cardSubstring in deckStringContents.split(separator: "\n") {
+                        let cardString = String(cardSubstring)
+                        if !cardString.hasSuffix(":") {
+                            words.append(cardString)
+                        }
+                    }
                 } else {
                     alertUser(message: "The given deck cannot be found!")
                     return false
@@ -198,7 +207,11 @@ struct ContentView: View {
                 alertUser(message: "Error: \(error)")
                 return false
             }
+        } else {
+            alertUser(message: "The given file path \(deckFile) is not found!")
+            return false
         }
+         
         return true //success
     }
 

@@ -1,0 +1,26 @@
+Animals:
+Monkey
+Goat
+Gorilla
+Lion
+Tiger
+Giraffe
+Walrus
+Narwhale
+Dolphin
+
+Famous People:
+Elon Musk
+Bill Gates
+Abraham Lincoln
+Joe Biden
+Donald Trump
+Jesus
+Mohammed
+
+Athletes:
+Leonardo Messi
+Christiano Ronaldo
+Michael Jordan
+Lebron James
+Mohammed Ali
