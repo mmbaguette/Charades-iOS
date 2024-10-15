@@ -28,13 +28,7 @@ struct GameScreen: View {
                         .zIndex(3.0)
                 } else {
                     if (showInstructions) {
-                        Text("Place phone on forehead.")
-                            .font(.system(size: 70))
-                            .minimumScaleFactor(0.01)
-                            .lineLimit(1)
-                            .foregroundStyle(.white)
-                            .bold() //instructions for user at the beginning of the game
-                            .padding()
+                        GameWord("Place phone on forehead.") //instructions for user at the beginning of the game
                     } else { //show the Current word that needs to be guessed
                         GameWord(currentWord)
                             .shadow(color: .white, radius: 6, x: 5, y: 5)
@@ -65,8 +59,10 @@ struct GameWord: View {
     
     var body: some View {
         Text(word)
+            .minimumScaleFactor(0.01)
+            .lineLimit(1) //keep everything on one line. scale the text down if you have to
             .font(.system(size: 90))
-            .minimumScaleFactor(0.01) //resizes text to fit view if it's too big
+             //resizes text to fit view if it's too big
             .foregroundStyle(.white)
             .bold()
             .multilineTextAlignment(.center)
@@ -90,9 +86,9 @@ struct CharadesTitle: View {
     @State var showInstructions = false
     @State var currentWord = WordListParsing().readDeckFromFile(deckFile: "decks", deckName: "Athletes", alertUser: {alertMsg in
         print(alertMsg)
-    }).randomElement() ?? "Joe Biden" //chose random word to display in the given deck file and deck name
-    @State var wins = 0
-    @State var skipped = 0
+    }).randomElement() ?? "Joejoemdfaa SDDGG" //chose random word to display in the given deck file and deck name
+    @State var wins = 3
+    @State var skipped = 1
 
     GameScreen(showWordFeedback: $showWordFeedback, lastWordWasCorrect: $lastWordWasCorrect, currentWord: $currentWord, wins: $wins, skipped: $skipped, showInstructions: $showInstructions, wordFeedbackAnimDuration: 0.5)
 }
