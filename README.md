@@ -3,4 +3,5 @@
 
 By placing the phone over your head, everyone around you must try and give you hints to help you guess the word on the screen. Tilting the phone forwards or backwards indicates that you've guessed the word correctly, or skipped it.
 
-<img width="422" alt="Screenshot 2024-10-15 at 6 52 35 PM" src="https://github.com/user-attachments/assets/e7ab1163-d284-440d-827e-36e9a9a74092">
+<img height="350" alt="Screenshot 2025-01-03 at 10 14 41 PM" src="https://github.com/user-attachments/assets/e4b6b63a-5459-4503-b602-2517a331321c" />
+<img height="350" alt="Screenshot 2025-01-03 at 10 15 29 PM" src="https://github.com/user-attachments/assets/bc505da6-949b-409b-adb3-7760a8109d83" />
