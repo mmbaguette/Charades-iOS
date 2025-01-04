@@ -5,48 +5,91 @@
 import SwiftUI
 
 struct GameScreen: View {
-    
     @Environment(\.dismiss) var dismissScreen
-    
-    @Binding var showWordFeedback: Bool
-    @Binding var lastWordWasCorrect: Bool
-    @Binding var currentWord: String
-    @Binding var wins: Int
-    @Binding var skipped: Int
-    @Binding var showInstructions: Bool
+    var globalVars: GameGlobalVariablesObject
+    @Binding var gameMode: Bool
+    let onGameEnded: (_ message: String) -> Void //call this when the game ends on its own (deck runs out, timer runs out)
+    let changeOrientation: (_ to: UIInterfaceOrientation) -> Void
     let wordFeedbackAnimDuration: Double
+    @State var isTimeUp: Bool = false
     
     var body: some View {
-        ZStack {
-            Color.purple.ignoresSafeArea()
             VStack {
-                CharadesTitle()
+                ZStack { //X button, stop game
+                    CharadesTitle()
+                    HStack {
+                        Button(action: {
+                            globalVars.wins = 0
+                            globalVars.skipped = 0 //reset scores before dismissing screen
+                            gameMode = false
+                            changeOrientation(.portrait)
+                            globalVars.timer.upstream.connect().cancel()
+                            dismissScreen()
+                        }, label: {
+                            Image(systemName: "x.circle.fill")
+                                .resizable()
+                                .foregroundStyle(.white)
+                                .scaledToFill()
+                                .frame(width: 50, height: 50)
+                                .padding()
+                        })
+                        
+                        Spacer()
+                    }
+                } //end of X button
+                
                 Spacer()
-                if (showWordFeedback) { //currently showing "Correct!" or "Skip!" label
-                    GameWord(lastWordWasCorrect ? "Correct!" : "Skip!")
-                        .opacity(showWordFeedback ? 1.0 : 0)
+                if (globalVars.showWordFeedback) { //currently showing "Correct!" or "Skip!" label
+                    GameWord(globalVars.lastWordWasCorrect ? "Correct!" : "Skip!")
+                        .opacity(globalVars.showWordFeedback ? 1.0 : 0)
                         .zIndex(3.0)
                 } else {
-                    if (showInstructions) {
+                    if (globalVars.showInstructions) {
                         GameWord("Place phone on forehead.") //instructions for user at the beginning of the game
                     } else { //show the Current word that needs to be guessed
-                        GameWord(currentWord)
+                        GameWord(globalVars.currentWord)
                             .shadow(color: .white, radius: 6, x: 5, y: 5)
-                            .opacity(showWordFeedback ? 0 : 1.0)
+                            .opacity(globalVars.showWordFeedback ? 0 : 1.0)
                             .zIndex(2.0)
                     }
                 }
-                Spacer() //Display wins
-                if !showInstructions {
-                    Text("Correct: \(wins)   Skipped: \(skipped)")
-                        .foregroundStyle(.white)
-                        .bold()
-                        .font(.title2)
+                Spacer()
+                
+                if !globalVars.showInstructions { //Display scores and timer when "Place on forehead" is not displayed
+                    HStack {
+                        if #available(iOS 18.0, *) {
+                            Image(systemName: "deskclock.fill")
+                            //.resizable()
+                                .font(.largeTitle)
+                                .foregroundStyle(.white)
+                                //.symbolEffect(.scale.up, options: .repeating, value: isTimeUp)
+                                .symbolEffect(.wiggle.clockwise, options: .repeating.speed(1.5), value: isTimeUp)
+                        } else {
+                            Image(systemName: "deskclock.fill")
+                                .font(.largeTitle)
+                                .foregroundStyle(.white)
+                        }
+                        Text("\( Duration.seconds(globalVars.timeRemaining).formatted(.time(pattern: .minuteSecond(padMinuteToLength: 1, fractionalSecondsLength: 0))) )")
+                            .onReceive(globalVars.timer) { _ in //countdown, decrease timer every second
+                                if globalVars.timeRemaining > 0 {
+                                    globalVars.timeRemaining -= 1
+                                } else {
+                                    isTimeUp = true
+                                    onGameEnded("Time's up!")
+                                }
+                            }
+                            .foregroundStyle(.white)
+                            .bold()
+                            .font(.title2)
+                        Text("| Correct: \(globalVars.wins)   Skipped: \(globalVars.skipped)")
+                            .foregroundStyle(.white)
+                            .bold()
+                            .font(.title2)
+                    }
                 }
-            }
-            .animation(.easeInOut(duration: wordFeedbackAnimDuration), value: showWordFeedback)
-            .zIndex(2.0)
-        }
+            }//end of main VStack
+            .animation(.easeInOut(duration: wordFeedbackAnimDuration), value: globalVars.showWordFeedback)
+            //.zIndex(2.0)
     }
 }
 
@@ -81,14 +124,13 @@ struct CharadesTitle: View {
 }
 
 #Preview {
-    @State var showWordFeedback = false
-    @State var lastWordWasCorrect = false
-    @State var showInstructions = false
-    @State var currentWord = WordListParsing().readDeckFromFile(deckFile: "decks", deckName: "Athletes", alertUser: {alertMsg in
-        print(alertMsg)
-    }).randomElement() ?? "Joejoemdfaa SDDGG" //chose random word to display in the given deck file and deck name
-    @State var wins = 3
-    @State var skipped = 1
-
-    GameScreen(showWordFeedback: $showWordFeedback, lastWordWasCorrect: $lastWordWasCorrect, currentWord: $currentWord, wins: $wins, skipped: $skipped, showInstructions: $showInstructions, wordFeedbackAnimDuration: 0.5)
+    @Previewable @StateObject var globalVars: GameGlobalVariablesObject = GameGlobalVariablesObject()
+    @Previewable @State var gameMode = false
+    
+    BackgroundImageViewModel(backgroundSwiftImage: Image("TestImage")) {
+        GameScreen(globalVars: globalVars, gameMode: $gameMode, onGameEnded: {msg in print(msg)}, changeOrientation: {_ in print("virtually changing orientation"); globalVars.timer.upstream.connect().cancel()}, wordFeedbackAnimDuration: 0.5)
+    }
+    .onAppear(perform: {
+        globalVars.timeRemaining = 3 //only in preview mode
+    })
 }

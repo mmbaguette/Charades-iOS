@@ -1,26 +1,1162 @@
+Famous Athletes:
+Michael Phelps
+Serena Williams
+Lionel Messi
+LeBron James
+Tom Brady
+Roger Federer
+Simone Biles
+Tiger Woods
+Usain Bolt
+Kobe Bryant
+Novak Djokovic
+Rafael Nadal
+Cristiano Ronaldo
+Stephen Curry
+Katie Ledecky
+Tim Duncan
+Patrick Mahomes
+Lewis Hamilton
+Aaron Donald
+Diana Taurasi
+Sidney Crosby
+Kevin Garnett
+Albert Pujols
+Floyd Mayweather
+Peyton Manning
+Randy Moss
+Nikola Jokic
+Michael Schumacher
+Mike Trout
+Clayton Kershaw
+Marta
+Miguel Cabrera
+Tamika Catchings
+Dwyane Wade
+Maya Moore
+Ichiro Suzuki
+Barry Bonds
+Kevin Durant
+Justin Verlander
+Dirk Nowitzki
+Giannis Antetokounmpo
+Alex Rodriguez
+Mikaela Shiffrin
+David Ortiz
+Max Scherzer
+Jimmie Johnson
+Thierry Henry
+Aitana Bonmati
+Zinedine Zidane
+Steve Nash
+Derek Jeter
+Alex Ovechkin
+Luka Modric
+Alexia Putellas
+Calvin Johnson
+Mariano Rivera
+Candace Parker
+Ray Lewis
+Shohei Ohtani
+Allyson Felix
+Mia Hamm
+Jon Jones
+James Harden
+Phil Mickelson
+Jason Kidd
+Manny Pacquiao
+Shaun White
+Mookie Betts
+Lisa Leslie
+Xavi Hernandez
+Georges St-Pierre
+Shelly-Ann Fraser Pryce
+Bernard Hopkins
+Bryce Harper
+Andy Murray
+Sheryl Swoopes
+Kohei Uchimura
+Chris Paul
+Lauren Jackson
+Kawhi Leonard
+Venus Williams
+Roy Halladay
+Annika Sorenstam
+Aaron Rodgers
+Pedro Martinez
+Rory McIlroy
+Ronaldinho
+Darrelle Revis
+Virat Kohli
+Connor McDavid
+Ed Reed
+Charles Woodson
+Michael Jordan
+Abby Wambach
+Bill Russell
+Jackie Robinson
+Babe Ruth
+Larry Bird
+Carl Lewis
+Magic Johnson
+
+Countries:
+Afghanistan 🇦🇫
+Albania 🇦🇱
+Algeria 🇩🇿
+Andorra 🇦🇩
+Angola 🇦🇴
+Antigua and Barbuda 🇦🇬
+Argentina 🇦🇷
+Armenia 🇦🇲
+Australia 🇦🇺
+Austria 🇦🇹
+Azerbaijan 🇦🇿
+Bahamas 🇧🇸
+Bahrain 🇧🇭
+Bangladesh 🇧🇩
+Barbados 🇧🇧
+Belarus 🇧🇾
+Belgium 🇧🇪
+Belize 🇧🇿
+Benin 🇧🇯
+Bhutan 🇧🇹
+Bolivia 🇧🇴
+Bosnia and Herzegovina 🇧🇦
+Botswana 🇧🇼
+Brazil 🇧🇷
+Brunei 🇧🇳
+Bulgaria 🇧🇬
+Burkina Faso 🇧🇫
+Burundi 🇧🇮
+Cabo Verde 🇨🇻
+Cambodia 🇰🇭
+Cameroon 🇨🇲
+Canada 🇨🇦
+Central African Republic 🇨🇫
+Chad 🇹🇩
+Chile 🇨🇱
+China 🇨🇳
+Colombia 🇨🇴
+Comoros 🇰🇲
+Congo (Congo-Brazzaville) 🇨🇬
+Congo (Democratic Republic of the Congo) 🇨🇩
+Costa Rica 🇨🇷
+Croatia 🇭🇷
+Cuba 🇨🇺
+Cyprus 🇨🇾
+Czech Republic 🇨🇿
+Denmark 🇩🇰
+Djibouti 🇩🇯
+Dominica 🇩🇲
+Dominican Republic 🇩🇴
+Ecuador 🇪🇨
+Egypt 🇪🇬
+El Salvador 🇸🇻
+Equatorial Guinea 🇬🇶
+Eritrea 🇪🇷
+Estonia 🇪🇪
+Eswatini 🇸🇿
+Ethiopia 🇪🇹
+Fiji 🇫🇯
+Finland 🇫🇮
+France 🇫🇷
+Gabon 🇬🇦
+Gambia 🇬🇲
+Georgia 🇬🇪
+Germany 🇩🇪
+Ghana 🇬🇭
+Greece 🇬🇷
+Grenada 🇬🇩
+Guatemala 🇬🇹
+Guinea 🇬🇳
+Guinea-Bissau 🇬🇼
+Guyana 🇬🇾
+Haiti 🇭🇹
+Honduras 🇭🇳
+Hungary 🇭🇺
+Iceland 🇮🇸
+India 🇮🇳
+Indonesia 🇮🇩
+Iran 🇮🇷
+Iraq 🇮🇶
+Ireland 🇮🇪
+Italy 🇮🇹
+Jamaica 🇯🇲
+Japan 🇯🇵
+Jordan 🇯🇴
+Kazakhstan 🇰🇿
+Kenya 🇰🇪
+Kiribati 🇰🇮
+North Korea 🇰🇵
+South Korea 🇰🇷
+Kuwait 🇰🇼
+Kyrgyzstan 🇰🇬
+Laos 🇱🇸
+Latvia 🇱🇻
+Lebanon 🇱🇧
+Lesotho 🇱🇸
+Liberia 🇱🇷
+Libya 🇱🇾
+Liechtenstein 🇱🇮
+Lithuania 🇱🇹
+Luxembourg 🇱🇺
+Madagascar 🇲🇬
+Malawi 🇲🇼
+Malaysia 🇲🇾
+Maldives 🇲🇻
+Mali 🇲🇱
+Malta 🇲🇹
+Marshall Islands 🇲🇭
+Mauritania 🇲🇷
+Mauritius 🇲🇺
+Mexico 🇲🇽
+Micronesia 🇫🇲
+Moldova 🇲🇩
+Monaco 🇲🇨
+Mongolia 🇲🇳
+Montenegro 🇲🇪
+Morocco 🇲🇦
+Mozambique 🇲🇿
+Myanmar 🇲🇲
+Namibia 🇳🇦
+Nauru 🇳🇷
+Nepal 🇳🇵
+Netherlands 🇳🇱
+New Zealand 🇳🇿
+Nicaragua 🇳🇮
+Niger 🇳🇪
+Nigeria 🇳🇬
+North Macedonia 🇲🇰
+Norway 🇳🇴
+Oman 🇴🇲
+Pakistan 🇵🇰
+Palau 🇵🇼
+Palestine 🇵🇸
+Panama 🇵🇦
+Papua New Guinea 🇵🇬
+Paraguay 🇵🇾
+Peru 🇵🇪
+Philippines 🇵🇭
+Poland 🇵🇱
+Portugal 🇵🇹
+Qatar 🇶🇦
+Romania 🇷🇴
+Russia 🇷🇺
+Rwanda 🇷🇼
+Saint Kitts and Nevis 🇰🇳
+Saint Lucia 🇱🇨
+Saint Vincent and the Grenadines 🇻🇨
+Samoa 🇼🇸
+San Marino 🇸🇲
+Sao Tome and Principe 🇸🇹
+Saudi Arabia 🇸🇦
+Senegal 🇸🇳
+Serbia 🇷🇸
+Seychelles 🇸🇨
+Sierra Leone 🇸🇱
+Singapore 🇸🇬
+Slovakia 🇸🇰
+Slovenia 🇸🇮
+Solomon Islands 🇸🇧
+Somalia 🇸🇴
+South Africa 🇿🇦
+South Sudan 🇸🇸
+Spain 🇪🇸
+Sri Lanka 🇱🇰
+Sudan 🇸🇩
+Suriname 🇸🇷
+Sweden 🇸🇪
+Switzerland 🇨🇭
+Syria 🇸🇾
+Taiwan 🇹🇼
+Tajikistan 🇹🇯
+Tanzania 🇹🇿
+Thailand 🇹🇭
+Timor-Leste 🇹🇱
+Togo 🇹🇬
+Tonga 🇹🇴
+Trinidad and Tobago 🇹🇹
+Tunisia 🇹🇳
+Turkey 🇹🇷
+Turkmenistan 🇹🇲
+Tuvalu 🇹🇻
+Uganda 🇺🇬
+Ukraine 🇺🇦
+United Arab Emirates 🇦🇪
+United Kingdom 🇬🇧
+United States 🇺🇸
+Uruguay 🇺🇾
+Uzbekistan 🇺🇿
+Vanuatu 🇻🇺
+Venezuela 🇻🇪
+Vietnam 🇻🇳
+Yemen 🇾🇪
+Zambia 🇿🇲
+Zimbabwe 🇿🇼
+
+Common Foods:
+Apple 🍎
+Avocado 🥑
+Bacon 🥓
+Banana 🍌
+Birthday Cake 🎂
+Bread 🍞
+Broccoli 🥦
+Bubble Tea 🧋
+Burger 🍔
+Carrot 🥕
+Cheese 🧀
+Chili 🌶️
+Chocolate 🍫
+Coconut 🥥
+Corn 🌽
+Cookie 🍪
+Dumplings 🥟
+Fish 🐟
+Fries 🍟
+Garlic 🧄
+Ginger 🫚
+Grapes 🍇
+Salad 🥗
+Hamburger 🍔
+Honey 🍯
+Hot Dog 🌭
+Sundae 🍨
+Lollipop 🍭
+Lime 🍋‍🟩
+Lemon 🍋
+Mango 🥭
+Melon 🍈
+Milk 🥛
+Milkshake 🥤
+Mushroom 🍄
+Onion 🧅
+Orange 🍊
+Peach 🍑
+Peanuts 🥜
+Pear 🍐
+Pea Pod 🫛
+Pizza 🍕
+Popcorn 🍿
+Potato 🥔
+Ramen 🍜
+Rice 🍚
+Salad 🥗
+Shrimp 🦐
+Sushi 🍣
+Spaghetti 🍝
+Snow Cone 🍧
+Ice Cream 🍦
+Sandwich 🥪
+Spaghetti 🍝
+Sweet Potato 🍠
+Taco 🌮
+Noodles 🥡
+Tea 🍵
+Tomato 🍅
+Waffle 🧇
+Watermelon 🍉
+
+Car Brands:
+Toyota
+Volkswagen
+Ford
+Honda
+Chevrolet
+BMW
+Mercedes-Benz
+Audi
+Nissan
+Hyundai
+Kia
+Porsche
+Lexus
+Mazda
+Jeep
+Subaru
+Chrysler
+Tesla
+Land Rover
+Jaguar
+Renault
+Peugeot
+Fiat
+Ferrari
+Lamborghini
+Aston Martin
+Bugatti
+Maserati
+Bentley
+Rolls-Royce
+McLaren
+Mini
+Tesla
+Infiniti
+Dodge
+Buick
+Cadillac
+GMC
+Lincoln
+
+Brands:
+Apple
+Microsoft
+Google
+Amazon
+Tesla
+Coca-Cola
+Pepsi
+Nike
+McDonald's
+Samsung
+Toyota
+Disney
+Adidas
+L’Oréal
+Louis Vuitton
+IKEA
+Intel
+Honda
+Facebook
+Sony
+BMW
+Nike
+Starbucks
+Uber
+Netflix
+Tiffany
+Red Bull
+Budweiser
+H&M
+Gucci
+Lexus
+Boeing
+General Electric
+Sony
+Target
+Walmart
+Honda
+Dell
+Vans
+Fendi
+Rolex
+Hermès
+Ford
+Sephora
+Nike
+Microsoft
+Puma
+Twitter
+Instagram
+Coca-Cola
+Heineken
+Amazon
+Ray-Ban
+Kellogg's
+Citi
+Adidas
+Canon
+Prada
+Chanel
+Dell
+Volkswagen
+BMW
+Pandora
+PayPal
+Baskin Robbins
+Skype
+Marlboro
+Nescafé
+Chrysler
+Rolex
+Mitsubishi
+BMW
+J.P. Morgan
+Xiaomi
+Volkswagen
+Marriott
+Asics
+Nike
+Ben & Jerry’s
+Tupperware
+Swarovski
+Skechers
+Chanel
+Cartier
+BMW
+Chevrolet
+Skoda
+Kia
+Lexus
+Chanel
+Reebok
+Tiffany & Co.
+Honda
+Audi
+Spotify
+Fujifilm
+Coca-Cola
+Nissan
+Toyota
+L’Oréal
+
+Big Companies:
+Apple Inc.
+Microsoft Corporation
+Alphabet (Google)
+Amazon
+Tesla Inc.
+Berkshire Hathaway
+NVIDIA
+Meta (Facebook)
+TSMC (Taiwan Semiconductor Manufacturing Company)
+Johnson & Johnson
+Walmart
+ExxonMobil
+JPMorgan Chase
+Visa
+Procter & Gamble
+UnitedHealth Group
+Mastercard
+Home Depot
+Pfizer
+AbbVie
+Coca-Cola
+Disney
+Intel
+PepsiCo
+Verizon
+AT&T
+Samsung Electronics
+Oracle
+Abbott Laboratories
+Nike
+Adobe
+Chevron
+ExxonMobil
+Lockheed Martin
+Chevron
+Shell
+Kweichow Moutai
+Toyota
+Tencent
+Roche
+L’Oréal
+Bristol Myers Squibb
+Tesla Motors
+Accenture
+Bristol Myers Squibb
+Intel
+Walmart
+IBM
+Unilever
+Johnson Controls
+SABIC
+Citi
+Salesforce
+Uber
+BP
+LVMH
+Samsung
+Nike
+Goldman Sachs
+Volkswagen
+Spotify
+Intel
+GlaxoSmithKline
+Huawei
+Alibaba
+Siemens
+3M
+Audi
+American Express
+CitiGroup
+Broadcom
+Dell
+Honeywell
+General Electric
+Square
+P&G
+Zara
+T-Mobile
+Eli Lilly
+Netflix
+PayPal
+Shell
+Nike
+HSBC
+H&M
+Caterpillar
+BP
+Amazon
+Tata Group
+Tesla
+Ford
+Toyota
+Chevrolet
+SpaceX
+Zoom
+Alibaba
+Lenovo
+General Motors
+Pfizer
+Airbnb
+
+Airlines:
+American Airlines
+Delta Airlines
+United Airlines
+Southwest Airlines
+China Southern Airlines
+Ryanair
+easyJet
+Lufthansa
+Air China
+IndiGo
+China Eastern Airlines
+British Airways
+Air France
+Japan Airlines
+Emirates
+Air India
+Turkish Airlines
+Qatar Airways
+Singapore Airlines
+Cathay Pacific Airways
+KLM Royal Dutch Airlines
+ANA (All Nippon Airways)
+Malaysia Airlines
+Qantas Airways
+Alaska Airlines
+Jet Airways
+Etihad Airways
+South African Airways
+Royal Jordanian
+Air Canada
+Swiss International Air Lines
+Alitalia
+Vietnam Airlines
+Thai Airways
+Austrian Airlines
+Iberia Airlines
+Aeroflot
+EgyptAir
+TAP Air Portugal
+Hainan Airlines
+Wizz Air
+Spirit Airlines
+WestJet
+Flydubai
+Scoot
+Ethiopian Airlines
+SAS (Scandinavian Airlines)
+EgyptAir
+Korean Air
+Lufthansa Group
+Pakistan International Airlines
+Garuda Indonesia
+Aegean Airlines
+Finnair
+Air New Zealand
+Kuwait Airways
+Asiana Airlines
+JetBlue Airways
+TUI Airways
+Vueling
+AirAsia
+LATAM Airlines
+Czech Airlines
+Royal Air Maroc
+Avianca
+Philippine Airlines
+Aeromexico
+Ukraine International Airlines
+Thai AirAsia
+Oman Air
+EVA Air
+Flynas
+Tunisair
+Air Seychelles
+Qatar Airways
+Lufthansa Group
+Boeing Air
+Nordic Airlines
+Flybe
+Air Mauritius
+Cebu Pacific
+Jazeera Airways
+Air Berlin
+Allegiant Air
+Sun Country Airlines
+TAM Airlines
+Peach Aviation
+Air Moldova
+Singapore Airlines
+Lion Air
+American Eagle
+Hong Kong Airlines
+EgyptAir
+EasyJet
+Oman Air
+Cathay Dragon
+Eurowings
+Air Greenland
+Fiji Airways
+Air Arabia
+
+Celebrities:
+Dwayne "The Rock" Johnson
+Taylor Swift
+Kim Kardashian
+Kylie Jenner
+Oprah Winfrey
+Beyoncé
+Elon Musk
+Barack Obama
+Cristiano Ronaldo
+Leonardo DiCaprio
+Ariana Grande
+Tom Hanks
+Johnny Depp
+Will Smith
+Angelina Jolie
+Brad Pitt
+Miley Cyrus
+Rihanna
+Justin Bieber
+Selena Gomez
+Ellen DeGeneres
+Jennifer Lopez
+Kanye West
+Shakira
+David Beckham
+Benedict Cumberbatch
+Emma Watson
+Robert Downey Jr.
+Scarlett Johansson
+Chris Hemsworth
+Lady Gaga
+Demi Lovato
+Ricky Gervais
+James Corden
+Kendall Jenner
+LeBron James
+Bill Gates
+Mark Zuckerberg
+Taylor Swift
+Keanu Reeves
+Kourtney Kardashian
+Sofia Vergara
+Matthew McConaughey
+Chris Pratt
+Jennifer Aniston
+Meryl Streep
+Vladimir Putin
+Kim Jong-un
+Queen Elizabeth II
+Britney Spears
+Nicki Minaj
+Kendall Jenner
+Emma Stone
+Chris Evans
+Eva Longoria
+Justin Timberlake
+Zac Efron
+Hugh Jackman
+Leonardo DiCaprio
+Dakota Johnson
+Matthew Perry
+Courteney Cox
+Johnny Depp
+Ryan Reynolds
+Margot Robbie
+Will Ferrell
+Steve Carell
+Neil Patrick Harris
+Megan Fox
+Sharon Stone
+Bradley Cooper
+Colin Farrell
+Chris Pine
+Lupita Nyong’o
+Morgan Freeman
+Chris Rock
+Harrison Ford
+Matt Damon
+George Clooney
+Ben Affleck
+Nicole Kidman
+Denzel Washington
+Matthew Broderick
+Eddie Murphy
+Kevin Hart
+Tom Cruise
+Patrick Stewart
+Tina Fey
+Kerry Washington
+Alec Baldwin
+Sarah Jessica Parker
+Ryan Gosling
+Jessica Alba
+Seth Rogen
+Steve Jobs
+James Franco
+Maggie Smith
+Michael B. Jordan
+Keira Knightley
+Toni Morrison
+
+Famous People in History:
+Albert Einstein
+Isaac Newton
+Leonardo da Vinci
+Aristotle
+Socrates
+Plato
+Alexander the Great
+Genghis Khan
+Mahatma Gandhi
+Winston Churchill
+Adolf Hitler
+Martin Luther King Jr.
+Nelson Mandela
+Abraham Lincoln
+Julius Caesar
+William Shakespeare
+Charles Darwin
+Galileo Galilei
+Thomas Edison
+Marie Curie
+Catherine the Great
+Cleopatra
+George Washington
+Franklin D. Roosevelt
+Thomas Jefferson
+Napoleon Bonaparte
+Queen Elizabeth I
+Moses
+Confucius
+Jesus Christ
+Muhammad
+Buddha
+King Henry VIII
+The Wright Brothers
+Charles Dickens
+Jane Austen
+Vincent van Gogh
+Pablo Picasso
+Mark Twain
+J.K. Rowling
+Steve Jobs
+Bill Gates
+Oprah Winfrey
+Michael Jackson
+Elvis Presley
+Beyoncé
+Audrey Hepburn
+Marlon Brando
+Charlie Chaplin
+Leonardo DiCaprio
+Nelson Rockefeller
+John F. Kennedy
+Barack Obama
+Donald Trump
+Queen Victoria
+Martin Luther
+Joan of Arc
+Catherine of Aragon
+Fidel Castro
+Joseph Stalin
+Karl Marx
+Lenin
+Che Guevara
+Wright Brothers
+Florence Nightingale
+Clara Barton
+Margaret Thatcher
+Mother Teresa
+Dalai Lama
+Stephen Hawking
+Bill Clinton
+Henry Ford
+John Lennon
+John Stuart Mill
+Ada Lovelace
+George Orwell
+Rosa Parks
+Susan B. Anthony
+Sylvia Plath
+Pope John Paul II
+Louis Pasteur
+Marie Antoinette
+Emperor Meiji
+King Louis XIV
+Emperor Augustus
+George H.W. Bush
+George III
+Michelangelo
+Raphael
+Blaise Pascal
+Jean-Paul Sartre
+Voltaire
+Machiavelli
+Alexander Hamilton
+Homer
+Christopher Columbus
+Marco Polo
+Vladimir Lenin
+Sun Tzu
+Florence Nightingale
+
+School Subjects:
+Mathematics
+Science
+English
+History
+Geography
+Art
+Physical Education
+Music
+Chemistry
+Physics
+Biology
+Social Studies
+Economics
+Psychology
+Computer Science
+Health Education
+Philosophy
+Religious Studies
+Civics
+Business Studies
+Drama
+Engineering
+Environmental Studies
+Literature
+Creative Writing
+Law
+Astronomy
+Statistics
+Media Studies
+Ethics
+Classical Studies
+Political Science
+Sociology
+Anthropology
+Music Theory
+Engineering Technology
+Robotics
+World History
+Current Affairs
+Finance
+
 Animals:
-Monkey
-Goat
-Gorilla
 Lion
 Tiger
+Elephant
 Giraffe
-Walrus
-Narwhale
+Zebra
+Kangaroo
+Panda
+Penguin
+Koala
+Polar Bear
+Grizzly Bear
+Wolf
+Fox
+Rabbit
+Deer
+Cheetah
+Leopard
+Gorilla
+Orangutan
+Chimpanzee
+Bison
+Rhino
+Hippo
+Alligator
+Crocodile
+Shark
+Whale
 Dolphin
+Octopus
+Jellyfish
+Starfish
+Sea Turtle
+Eagle
+Hawk
+Falcon
+Owl
+Peacock
+Parrot
+Sparrow
+Pigeon
+Crow
+Duck
+Goose
+Chicken
+Turkey
+Horse
+Donkey
+Cow
+Sheep
+Goat
+Pig
+Chicken
+Duck
+Llama
+Alpaca
+Camel
+Horse
+Bat
+Squirrel
+Chipmunk
+Rat
+Mouse
+Gerbil
+Hamster
+Frog
+Toad
+Salamander
+Newt
+Snail
+Slug
+Bee
+Butterfly
+Ant
+Dragonfly
+Moth
+Ladybug
+Caterpillar
+Worm
+Crab
+Lobster
+Shrimp
+Clam
+Mussel
+Scorpion
+Spider
+Centipede
+Millipede
+Caterpillar
 
-Famous People:
-Elon Musk
-Bill Gates
-Abraham Lincoln
-Joe Biden
-Donald Trump
-Jesus
-Mohammed
+Movies:
+The Shawshank Redemption
+The Godfather
+The Dark Knight
+Forrest Gump
+The Matrix
+Pulp Fiction
+The Lord of the Rings: The Fellowship of the Ring
+Inception
+The Empire Strikes Back
+The Avengers
+Gladiator
+Titanic
+Jurassic Park
+The Lion King
+Fight Club
+The Godfather: Part II
+The Prestige
+The Departed
+Interstellar
+Schindler's List
+The Good, the Bad, and the Ugly
+The Dark Knight Rises
+The Silence of the Lambs
+Star Wars: Return of The Jedi
+Star Wars: Rogue One
+Star Wars: The Force Awakens
+Star Wars: The Last Jedi
+Star Wars: The Rise of Skywalker
+Star Wars: A New Hope
+Star Wars: Revenge of the Sith
+The Green Mile
+Goodfellas
+The Shining
+Back to the Future
+The Incredibles
+Pulp Fiction
+The Social Network
+Mad Max: Fury Road
+The Terminator
+The Wizard of Oz
+Spider-Man: Into the Spider-Verse
+Avatar
+The Revenant
+The Grand Budapest Hotel
+12 Angry Men
+Deadpool
+Casablanca
+Citizen Kane
+Vertigo
+The Princess Bride
+The Hunt for Red October
+The Matrix Reloaded
+Guardians of the Galaxy
+The Big Lebowski
+The Breakfast Club
+The Exorcist
+Pulp Fiction
+The Sixth Sense
+Inglourious Basterds
+The King's Speech
+A Clockwork Orange
+Gone with the Wind
+Saving Private Ryan
+Forrest Gump
+Deadpool
+Jurassic World
 
-Athletes:
-Lionel Messi
-Christiano Ronaldo
-Michael Jordan
-Lebron James
-Muhammad Ali
+Holidays:
+New Year's Day
+Christmas Day
+Thanksgiving
+Halloween
+Easter
+Valentine's Day
+Labor Day
+Independence Day
+Veterans Day
+Memorial Day
+Mother's Day
+Father's Day
+Hanukkah
+Diwali
+Chinese New Year
+Good Friday
+Boxing Day
+St. Patrick's Day
+Canada Day
+Cinco de Mayo
+Thanksgiving
+Mardi Gras
+Labor Day (International Workers' Day)
+Veteran's Day
+International Women's Day
+Yom Kippur
+Rosh Hashanah
+Passover
+Ramadan
+Eid al-Fitr
+Eid al-Adha
+Day of the Dead (Día de los Muertos)
+Oktoberfest
+Sinterklaas
+Lunar New Year
+Groundhog Day
+Bastille Day
+All Saints' Day
+Arbor Day
+Earth Day
+Christmas Eve
+Boxing Day
+International Day of Peace
+National Women's Day
+International Children's Day
+Friendship Day
+National Pancake Day
+National Ice Cream Day
+Shrove Tuesday
+Ash Wednesday

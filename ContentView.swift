@@ -6,23 +6,53 @@ import SwiftUI
 import CoreMotion
 import _PhotosUI_SwiftUI //PhotoPicker.swift
 
-//import AudioToolbox
-
 /*
 TODO:
- - FIX showWordFeedback NOT SHOWING
- - Lock the screen in orientation mode
  - Countdown in game
  - countdown before starting game
- - Winning screen, and go back to main screen
-- Then fix the issue where some elements are shown twice in the same game. If the deck is finished then show the winning screen
- - deck selection screen
  - high score, store on phone
- - add custom decks
  */
 
+@MainActor
+class GameGlobalVariablesObject: ObservableObject {
+    let defaultGameLength: Int = 120 //default length of game in seconds
+    
+    @Published var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
+    @Published var pitchIsReset = false //whether the user has held their phone back up straight
+    @Published var lastWordWasCorrect = true //whether the last word held up by the user was guessed correctly or skipped
+    @Published var showWordFeedback = false //whether we're displaying the current word or "Correct!" or "Skip!" to be used in withAnimation
+    @Published var startingGame = false //whether we're starting a new game (user clicked start). this triggers the Start button animation
+    @Published var showCountdown = false
+    @Published var chosenDeck: String = "" //the name of the deck in the decks.txt file
+    
+    @Published var words: [String] = []
+    @Published var showInstructions = false //whether we're still showing pre-game instructions before the round starts ("Place on forehead")
+    
+    //values that the user sees
+    @Published var currentWord: String = "" //current displayed word
+    @Published var wins: Int = 0 //# of correctly guseed words
+    @Published var skipped: Int = 0 //# of skipped word
+    @Published var timeRemaining: Int //timer time remaining
+    
+    init() {
+        self.timeRemaining = defaultGameLength
+        
+        let isPreviewing = ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] //Preview mode
+        if (isPreviewing != nil) {
+            if (isPreviewing! == "1") { //if in preview mode
+                self.chosenDeck = "People"
+                self.words = ["Lebron", "James"]
+                self.currentWord = words.first ?? "Johm"
+            }
+        }
+    }
+}
+
+@MainActor
 struct ContentView: View {
     @StateObject private var viewModel = PhotoPickerViewModel()
+    @StateObject private var globalVars: GameGlobalVariablesObject = GameGlobalVariablesObject()
     
     let manager = CMMotionManager()
     let queue = OperationQueue()
@@ -31,109 +61,144 @@ struct ContentView: View {
     private let rotationChangePublisher = NotificationCenter.default
             .publisher(for: UIDevice.orientationDidChangeNotification)
     
-    //background vars that the game controls
-    @State var gameMode: Bool = false //whether a game is in sessions and the game fullScreenPopup is showing
-    @State var pitchIsReset = false //whether the user has held their phone back up straight
-    @State var lastWordWasCorrect = true //whether the last word held up by the user was guessed correctly or skipped
-    @State var showWordFeedback = false //whether we're displaying the current word or "Correct!" or "Skip!" to be used in withAnimation
-    @State var startingGame = false //whether we're starting a new game (user clicked start). this triggers the Start button animation
-    @State var showCountdown = false
-    @State var chosenDeck: String = "Athletes" //the name of the deck in the decks.txt file
-    @State var words: [String] = []
-    @State var showInstructions = false //whether we're still showing pre-game instructions before the round starts ("Place on forehead")
-    
-    //values that the user sees
-    @State var currentWord: String = "" //current displayed word
-    @State var wins: Int = 0 //# of correctly guseed words
-    @State var skipped: Int = 0 //# of skipped word
-    //@State var displayText = "" //large text to display on screen during game
-    
     @State var showUserAlert: Bool = false
     @State var errorMessage: String = ""
     @State var errorTitle: String = ""
     
+    @State var gameMode: Bool = false //whether a game is in sessions and the game fullScreenPopup is showing
+    @State var showStartScreen: Bool = false //whether start button is being displayed
+    
     //constants
     let deckFileName = "decks" //do NOT include .txt extension
-    let wordFeedbackAnimDuration: Double = 0.5 //0.2
+    let wordFeedbackAnimDuration: Double = 0.5 //how long the Skip! or Correct! word appears
     
     var body: some View {
-        ZStack { //home page
-            if let image = viewModel.selectedImage {
-                Image(uiImage: image)
-                    .resizable() //without .scaledToFill or Fit, the image just fills the whole frame on its own, distorted
-                    .ignoresSafeArea()
-                    .zIndex(0)
-            } else {
-                Color.purple.ignoresSafeArea()
-            }
-            
-            VStack {
-                CharadesTitle()
-                Spacer()
-                StartButton(words: $words, startingGame: $startingGame, gameMode: $gameMode, showInstructions: $showInstructions, changeOrientation: changeOrientation, alertUser: alertUser)
-                .alert(errorTitle, isPresented: $showUserAlert) {
-                    Button("OK", role: .cancel) {}
-                } message: {
-                    Text(errorMessage)
-                }
-                .fullScreenCover(isPresented: $gameMode, content: {
-                    GameScreen(showWordFeedback: $showWordFeedback, lastWordWasCorrect: $lastWordWasCorrect, currentWord: $currentWord, wins: $wins, skipped: $skipped, showInstructions: $showInstructions, wordFeedbackAnimDuration: wordFeedbackAnimDuration)
-                })
-                
-                HStack { //bottom PhotosPicker bar
-                    PhotosPicker(selection: $viewModel.imageSelection, matching: .images) {
-                        Image(systemName: "photo.on.rectangle.angled")
-                            .foregroundStyle(.white)
-                            .font(.largeTitle)
-                    }
-                    .padding()
+        BackgroundImageViewModel (backgroundUIImage: viewModel.selectedImage) {
+            ZStack { //home page
+                VStack {
+                    CharadesTitle()
                     Spacer()
-                }
-            } //end of VStack
-            .zIndex(1.0)
-        } //end of ZStack
-        .onAppear(perform: onMainScreenAppear)
+                    DeckSelectionScreen(globalVars: globalVars, showStartScreen: $showStartScreen, alertUser: alertUser)
+                        .fullScreenCover(isPresented: $showStartScreen, content: { //show start button when a deck is selected
+                            BackgroundImageViewModel (backgroundUIImage: viewModel.selectedImage) {
+                                StartButton(globalVars: globalVars, gameMode: $gameMode, checkMotions: checkMotions, changeOrientation: changeOrientation, alertUser: alertUser)
+                                .alert(errorTitle, isPresented: $showUserAlert) {
+                                    Button("OK", role: .cancel) {}
+                                } message: {
+                                    Text(errorMessage)
+                                    //Game Screen Pop-up
+                                        
+                                } //end of alert message
+                            }
+                            .fullScreenCover(isPresented: $gameMode, content: {
+                                //selected background image stays even as the game is playing
+                                BackgroundImageViewModel (backgroundUIImage: viewModel.selectedImage) {
+                                    GameScreen(globalVars: globalVars, gameMode: $gameMode, onGameEnded: endGame, changeOrientation: changeOrientation, wordFeedbackAnimDuration: wordFeedbackAnimDuration)
+                                }}) //end of gameScreen fullScreenCover
+                        }) //end of StartButton fullScreenCover
+                    
+                    HStack { //bottom PhotosPicker bar
+                        PhotosPicker(selection: $viewModel.imageSelection, matching: .images) {
+                            Image(systemName: "photo.on.rectangle.angled")
+                                .foregroundStyle(.white)
+                                .font(.largeTitle)
+                        }
+                        .padding()
+                        Spacer()
+                    }
+                } //end of VStack
+                .zIndex(1.0)
+            } //end of ZStack
+            .onAppear(perform: onMainScreenAppear)
+        }
     } //end of var body: some View
      
+    //when the app first loads
     func onMainScreenAppear() {
         changeOrientation(to: .portrait) //make sure phone is in portrait mode in the beginning
-        words = WordListParsing().readDeckFromFile(deckFile: deckFileName, deckName: chosenDeck, alertUser: alertUser)
-        if words.isEmpty {return} //make sure the program can actually fetch the deck from the local file storage, or the game can't function at all!
+        //manager.stopDeviceMotionUpdates() //use this to stop motin updates
+    }
+    
+    func checkMotions () {
+        var curr: Int = 0 //index of the current word
+        let shuffledDeck = globalVars.words.shuffled()
         
-        currentWord = chooseRandomWord() //set first word
+        if (gameMode && !shuffledDeck.isEmpty) { //make sure deck has contents
+            globalVars.currentWord = shuffledDeck.first! //set first word
+        } else {
+            gameMode = false
+            print("This deck is empty!")
+            return
+        }
         
         manager.startDeviceMotionUpdates(to: self.queue) { (data: CMDeviceMotion?, error: Error?) in
             let attitude = data!.attitude
             
-            if gameMode && !showInstructions {
-                if Double(attitude.roll) >= (3*Double.pi/4) && pitchIsReset { // 3/4 of pi, rolled phone forwards to indicate "Correct!"
-                    wins = wins + 1 //add to wins score
-                    lastWordWasCorrect = true //helps identify whether to display "Correct!" or "Skip!" as feedback when phone is titlted
-                    resetPitch()
-                } else if Double(attitude.roll) <= (1*Double.pi/4) && Double(attitude.roll) > 0 && pitchIsReset { //rolled phone backwards to Skip!
-                    skipped = skipped + 1
-                    lastWordWasCorrect = false
-                    resetPitch()
-                }
-                else if Double(attitude.roll) < (3*Double.pi/4) && Double(attitude.roll) > (1*Double.pi/4) { //user rolled phone back up after rolling it down (between 1/4 and 3/4 of pi)
-                    pitchIsReset = true
+            if gameMode { //if a game is in session,
+                if (!globalVars.showInstructions &&  !globalVars.showWordFeedback) { //if we're currently showing a word from the deck (and not instructions or Skip!)
+                    if Double(attitude.roll) >= (3*Double.pi/4) && globalVars.pitchIsReset { // 3/4 of pi, rolled phone forwards to indicate "Correct!"
+                        DispatchQueue.main.async {
+                            globalVars.wins += 1 //add to wins score
+                            globalVars.lastWordWasCorrect = true //helps identify whether to display "Correct!" or "Skip!" as feedback when phone is titlted
+                        }
+                        curr = resetPitch(curr: curr, shuffledDeck: shuffledDeck)
+                    } else if Double(attitude.roll) <= (1*Double.pi/4) && Double(attitude.roll) > 0 && globalVars.pitchIsReset { //rolled phone backwards to Skip!
+                        DispatchQueue.main.async {
+                            globalVars.skipped += 1
+                            globalVars.lastWordWasCorrect = false
+                        }
+                        curr = resetPitch(curr: curr, shuffledDeck: shuffledDeck)
+                    }
+                    else if Double(attitude.roll) < (3*Double.pi/4) && Double(attitude.roll) > (1*Double.pi/4) { //user rolled phone back up after rolling it down (between 1/4 and 3/4 of pi)
+                        DispatchQueue.main.async {
+                            globalVars.pitchIsReset = true
+                        }
+                    }
                 }
             } //end of if gameMode
+            else { //stop motion updates as soon as game is over
+                print("Game has ended. gameMode is false")
+                //changeOrientation(to: .portrait) //crashes game
+                manager.stopDeviceMotionUpdates()
+            }
         } //end of startDeviceMotionUpdates
     }
     
-    func resetPitch() {
-        currentWord = chooseRandomWord()
-        pitchIsReset = false
+    func endGame(_ msg: String) {
+        DispatchQueue.main.async {
+            globalVars.timer.upstream.connect().cancel()
+            globalVars.currentWord = msg
+        }
+        manager.stopDeviceMotionUpdates()
+        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate)) //vibrate phone 3 times to indicate win
+    }
+    
+    func resetPitch(curr: Int, shuffledDeck: [String]) -> Int {
+        DispatchQueue.main.async {
+            globalVars.pitchIsReset = false
+            globalVars.showWordFeedback = true //display "Correct!" or "Skip!" then make it fade out
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2 + wordFeedbackAnimDuration) { //0.6 is animation delay.
+            globalVars.showWordFeedback = false //take away Skip! or Correct! messages
+        }
+        
+        var curr = curr
+        
+        curr+=1
+        if curr < shuffledDeck.count {
+            DispatchQueue.main.async {
+                globalVars.currentWord = shuffledDeck[curr]
+            }
+        } else {
+            //warn user game ended, show stats
+            endGame("Game Over!")
+            return curr
+        }
         
         AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate)) //vibrate phone
         
-        //display "Correct!" or "Skip!" then make it fade out
-        showWordFeedback = true
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4 + wordFeedbackAnimDuration) { //0.6 is animation delay.
-            showWordFeedback = false //take away Skip! or Correct! messages
-        }
+        return curr
     }
     
     func alertUser(message: String) { //this function updates a value in the struct
@@ -150,11 +215,41 @@ struct ContentView: View {
         
         //print("Changing to", orientation.isPortrait ? "Portrait" : "Landscape")
     }
-        
-    func chooseRandomWord() -> String {
-        return words.randomElement()!
-    }
 } //end of struct
+
+//an amazing ViewBuilder that when you wrap it around another view, it takes either a UIImage or SwiftUI image and that will be your background.
+struct BackgroundImageViewModel<Content: View>: View {
+    var backgroundSwiftImage: Image? = nil
+    @State var backgroundUIImage: UIImage? = nil
+    private var backgroundImage: Image? = nil
+    
+    @ViewBuilder let content: Content
+    
+    init(backgroundSwiftImage: Image? = nil, backgroundUIImage: UIImage? = nil, @ViewBuilder content: () -> Content) { //_ underscore means no parameter name required when declaring this struct
+        if (backgroundUIImage != nil) {
+            self.backgroundImage = Image(uiImage: backgroundUIImage!)
+        } else if (backgroundSwiftImage != nil) {
+            self.backgroundImage = backgroundSwiftImage
+        }
+        self.content = content()
+    }
+    
+    var body: some View {
+        ZStack {
+            if (backgroundImage != nil) {
+                backgroundImage!
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
+                    .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.height)
+                    
+            } else {
+                Color.purple.ignoresSafeArea(.all)
+            }
+            content
+        }
+    }
+}
 
 #Preview {
 //    @State var showWordFeedback = false
